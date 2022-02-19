@@ -36,20 +36,20 @@ namespace MyCart.Services
         int CalcShippingCost(OrderEntity order);
     }
 
-    /// <summary>
-    /// 提供購物車相關服務
-    /// </summary>
-    public class ShippingCart : IShippingCostProvider
-    {
-        /// <summary>
-        /// 計算運費, 若總金額2000以上免運費, 2000以下 黑貓150 郵寄80
-        /// </summary>
-        /// <param name="order"></param>
-        /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
-        public int CalcShippingCost(OrderEntity order)
-        {
-            throw new NotImplementedException();
-        }
-    }
+    ///// <summary>
+    ///// 提供購物車相關服務
+    ///// </summary>
+    //public class ShippingCart : IShippingCostProvider
+    //{
+    //    /// <summary>
+    //    /// 計算運費, 若總金額2000以上免運費, 2000以下 黑貓150 郵寄80
+    //    /// </summary>
+    //    /// <param name="order"></param>
+    //    /// <returns></returns>
+    //    /// <exception cref="NotImplementedException"></exception>
+    //    public int CalcShippingCost(OrderEntity order)
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 }
