@@ -8,6 +8,29 @@ namespace MyCart.Services
 {
     public class OrderService
     {
+        IShippingCostProvider _ShippingCostProvider;
+        public OrderService(IShippingCostProvider shippingCostProvider)
+        {
+            _ShippingCostProvider = shippingCostProvider;
+        }
+
+        /// <summary>
+        /// 結帳100元以下和20萬以上，不允許結帳
+        /// </summary>
+        /// <param name="orderContext">訂單基本資料</param>
+        public void CheckOut(OrderEntity orderContext)
+        {
+            if (orderContext.OrderTotal <= 100)
+                throw new Exception("訂單金額過低，無法出貨");
+            if (orderContext.OrderTotal >= 200000)
+                throw new Exception("訂單金額過高，無法線上購物，將有專人為您服務");
+
+            int shippingCost = _ShippingCostProvider.CalcShippingCost(orderContext);
+
+            orderContext.ShippingCost = shippingCost;
+
+            // todo 將訂單存放到資料庫
+        }
     }
 
     public class OrderEntity
